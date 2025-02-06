@@ -2,7 +2,12 @@
 import { RouterLink } from "vue-router";
 </script>
 <template>
-  <div class="container w-1/2 mx-auto m-10 shadow-lg p-10 bg-white">
+  <div class="mt-10">
+    <a href="/">
+      <img src="/img/logo.png" alt="Logo" class="w-60 mx-auto" />
+    </a>
+  </div>
+  <div class="container w-7/8 md:w-1/2 mx-auto m-10 shadow-lg p-4 bg-white">
     <h1 class="text-center uppercase text-sm font-medium mb-4">
       Inicia sesión
     </h1>
