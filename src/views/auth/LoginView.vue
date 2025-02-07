@@ -1,5 +1,19 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { reactive, ref } from "vue";
+import { useAuthStore } from "@/stores/authStore";
+
+const authStore = useAuthStore();
+const datos = reactive({
+  email: "",
+  password: "",
+});
+const errores = ref({});
+
+const submitForm = async () => {
+  await authStore.login(datos, errores);
+};
+
 </script>
 <template>
   <div class="mt-10">
@@ -11,7 +25,7 @@ import { RouterLink } from "vue-router";
     <h1 class="text-center uppercase text-sm font-medium mb-4">
       Inicia sesión
     </h1>
-    <form action="" class="p-4">
+    <form @submit.prevent="submitForm" class="p-4">
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700"
           >Email</label
@@ -19,7 +33,7 @@ import { RouterLink } from "vue-router";
         <input
           type="email"
           id="email"
-          name="email"
+          v-model="datos.email"
           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
         />
       </div>
@@ -30,7 +44,7 @@ import { RouterLink } from "vue-router";
         <input
           type="password"
           id="password"
-          name="password"
+          v-model="datos.password"
           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
         />
       </div>

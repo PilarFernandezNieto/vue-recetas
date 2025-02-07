@@ -35,8 +35,27 @@ export const useAuthStore = defineStore("auth", () => {
         errores.value = Object.values(error.response.data.errors);
       }
   }
+  const login = async (datos, errores) => {
+    try {
+        // const response = await clienteAxios.get("/sanctum/csrf-cookie");
+        // console.log(response);
+        const {data} = await apiAuth.login(datos);
+        console.log(data);
+        setToken(data.token);
+        errores.value = [];
+        if (data.type === "success") {
+          toast.mostrarExito(data.message);
+          router.push({ name: "/" });
+        }
+      } catch (error) {
+        console.log(error.response.data.errors);
+        
+        errores.value = Object.values(error.response.data.errors);
+      }
+  }
 
   return {
-    registro
+    registro,
+    login
   };
 });
