@@ -15,7 +15,7 @@ const imagenServer = computed(() => props.ingrediente.imagen.startsWith("http"))
     >
         <div class="space-y-2">
             <p class="font-black text-2xl">
-                {{ ingrediente.id }}# {{ ingrediente.nombre }}
+             {{ ingrediente.nombre }}
             </p>
             <p class="text-lg">{{ ingrediente.descripcion }}</p>
         </div>

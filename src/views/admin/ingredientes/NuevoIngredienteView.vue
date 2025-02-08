@@ -1,10 +1,12 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useIngredientesStore } from '@/stores/ingredientesStore'
 import SubmitInput from '@/components/SubmitInput.vue'
+import Alerta from '@/components/Alerta.vue'
 
 const ingredientesStore = useIngredientesStore()
+const errores = ref([])
 const datos = reactive({
     nombre: '',
     imagen: '',
@@ -17,12 +19,12 @@ const handleImageChange = (e) => {
 }
 
 const submitIngrediente = () => {
-   const formData = new FormData();
-   formData.append('nombre', datos.nombre);
-   formData.append('imagen', datos.imagen);
-   formData.append('descripcion', datos.descripcion);
+    const formData = new FormData()
+    formData.append('nombre', datos.nombre)
+    formData.append('imagen', datos.imagen)
+    formData.append('descripcion', datos.descripcion)
 
-   ingredientesStore.crearIngrediente(formData);
+    ingredientesStore.crearIngrediente(formData, errores)
 }
 </script>
 <template>
@@ -30,6 +32,11 @@ const submitIngrediente = () => {
         class="w-[90%] md:w-[70%] mx-auto shadow-md p-4 md:p-8 bg-amber-50 space-y-4 rounded-sm my-10"
     >
         <h1 class="text-3xl font-black mb-4">Nuevo Ingrediente</h1>
+        <div v-if="errores" class="my-4">
+            <Alerta v-for="(error, index) in errores" :key="index">{{
+                error[0]
+            }}</Alerta>
+        </div>
         <form @submit.prevent="submitIngrediente">
             <div class="mb-4">
                 <label for="nombre" class="text-amber-800 text-lg uppercase"
@@ -69,5 +76,6 @@ const submitIngrediente = () => {
             </div>
             <SubmitInput value="Nuevo Ingrediente"></SubmitInput>
         </form>
+        <RouterLink :to="{ name: 'ingredientes' }" class="border border-amber-500 py-2 px-4 rounded-md text-amber-500">Atrás</RouterLink>
     </div>
 </template>

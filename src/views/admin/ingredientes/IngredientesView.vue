@@ -57,5 +57,6 @@ const ingredientesFiltrados = computed(() => {
                 :ingrediente="ingrediente"
             />
         </div>
+        <RouterLink :to="{ name: 'dashboard' }" class="border border-amber-500 py-2 px-4 rounded-md text-amber-500">Atrás</RouterLink>
     </div>
 </template>
