@@ -10,6 +10,6 @@ const clienteAxios = axios.create({
     withXSRFToken:true
 });
 
-
+clienteAxios.defaults.withXSRFToken = true;
 
 export default clienteAxios;

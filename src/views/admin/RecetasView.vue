@@ -2,5 +2,7 @@
 
 </script>
 <template>
-<main>Desde inicio</main>
+    <div>
+Listado de recetas
+    </div>
 </template>

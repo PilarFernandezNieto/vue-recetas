@@ -13,16 +13,15 @@ onMounted(() => {
   <header class="shadow-md bg-white">
     <div class="max-w-screen-lg mx-auto">
       <div class="flex justify-between items-center p-4">
-        <div>
+        <a href="/" >
           <img src="/img/logo.png" alt="Logo" class="w-60" />
-        </div>
+        </a>
         <div class="block lg:hidden">
           <button id="menu-toggle" class="text-2xl text-medium">
             <i class="fas fa-bars"></i>
           </button>
         </div>
         <nav class="hidden lg:flex space-x-4 items-center">
-          <RouterLink :to="{name: 'admin'}"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Admin</RouterLink>
           <a href="#"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Recetas</a>
           <a
             href="#"
@@ -36,7 +35,6 @@ onMounted(() => {
     <!-- Menú desplegable en dispositivos móviles -->
     <div id="mobile-menu" class="lg:hidden hidden bg-white shadow-md">
       <nav class="flex flex-col space-y-4 p-4">
-        <RouterLink :to="{name: 'admin'}"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Admin</RouterLink>
         <a href="#"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Recetas</a>
         <a
           href="#"
@@ -47,7 +45,7 @@ onMounted(() => {
       </nav>
     </div>
   </header>
-  <main  class="bg-amber-50 h-screen">
+  <main>
     <RouterView />
   </main>
 </template>

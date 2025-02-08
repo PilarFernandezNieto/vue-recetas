@@ -4,6 +4,9 @@ import { useRouter } from "vue-router";
 import { useToastStore } from "./toastStore";
 import apiAuth from "@/api/apiAuth";
 
+
+const csrf = () => apiAuth.csrf();
+
 export const useAuthStore = defineStore("auth", () => {
   const token = ref(localStorage.getItem("AUTH_TOKEN") || null);
   const user = ref(null);
@@ -21,8 +24,7 @@ export const useAuthStore = defineStore("auth", () => {
 
   const registro = async (datos, errores) => {
     try {
-        // const response = await clienteAxios.get("/sanctum/csrf-cookie");
-        // console.log(response);
+        await csrf();
         const {data} = await apiAuth.registro(datos);
         console.log(data);
         
@@ -37,8 +39,7 @@ export const useAuthStore = defineStore("auth", () => {
   }
   const login = async (datos, errores) => {
     try {
-        // const response = await clienteAxios.get("/sanctum/csrf-cookie");
-        // console.log(response);
+      await csrf();
         const {data} = await apiAuth.login(datos);
         console.log(data);
         setToken(data.token);
