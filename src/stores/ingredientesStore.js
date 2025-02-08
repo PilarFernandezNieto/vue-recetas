@@ -5,14 +5,19 @@ import { ingredientes  as ingredientesDB } from "@/data/ingredientes";
 export const useIngredientesStore = defineStore("ingredientes", () => {
     const ingredientes = ref([]);
 
-    onMounted(() => {
+
+
+    const cargarIngredientes = () => {
         ingredientes.value = ingredientesDB
-    })
+    }
+
+ 
         console.log(ingredientes.value);
 
 
 
     return {
-        ingredientes
+        ingredientes,
+        cargarIngredientes
     }
 });
