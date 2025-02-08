@@ -50,10 +50,12 @@ const ingredientesFiltrados = computed(() => {
                 >
             </div>
         </div>
-        <Ingrediente
-            v-for="ingrediente in ingredientesFiltrados"
-            :key="ingrediente.id"
-            :ingrediente="ingrediente"
-        />
+        <div class="grid grid-cols-1 gap-4">
+            <Ingrediente
+                v-for="ingrediente in ingredientesFiltrados"
+                :key="ingrediente.id"
+                :ingrediente="ingrediente"
+            />
+        </div>
     </div>
 </template>
