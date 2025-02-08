@@ -1,23 +1,26 @@
-import { defineStore } from "pinia";
-import { ref, onMounted } from "vue";
-import { ingredientes  as ingredientesDB } from "@/data/ingredientes";
+import { defineStore } from 'pinia'
+import { ref, onMounted } from 'vue'
+import clienteAxios from '../../config/axios'
+import { ingredientes as ingredientesDB } from '@/data/ingredientes'
 
-export const useIngredientesStore = defineStore("ingredientes", () => {
-    const ingredientes = ref([]);
+export const useIngredientesStore = defineStore('ingredientes', () => {
+    const ingredientes = ref([])
 
+    onMounted(() => {
+        cargarIngredientes()
+    })
 
-
-    const cargarIngredientes = () => {
-        ingredientes.value = ingredientesDB
+    const cargarIngredientes = async () => {
+        try {
+            const { data } = await clienteAxios.get('/api/ingredientes')
+            ingredientes.value = data.data
+        } catch (error) {
+            console.log('Error al cargar ingredientes', error)
+        }
     }
-
- 
-        console.log(ingredientes.value);
-
-
 
     return {
         ingredientes,
-        cargarIngredientes
+        cargarIngredientes,
     }
-});
+})

@@ -20,9 +20,9 @@ defineProps({
         <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <div class="flex justify-center lg:mb-0">
                 <img
-                    :src="ingrediente.imagen"
+                    :src="`/img/${ingrediente.imagen}`"
                     :alt="ingrediente.nombre"
-                    class="w-full lg:w-40 "
+                    class="w-full lg:w-40 rounded-md"
                 />
             </div>
             <div class="flex lg:flex-col justify-between gap-5">

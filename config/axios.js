@@ -7,9 +7,9 @@ const clienteAxios = axios.create({
         "X-Requested-With": "XMLHttpRequest",
     },
     withCredentials: true,
-    withXSRFToken:true
+
 });
 
-clienteAxios.defaults.withXSRFToken = true;
+
 
 export default clienteAxios;
