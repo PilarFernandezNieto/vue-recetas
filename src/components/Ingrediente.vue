@@ -1,11 +1,13 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-defineProps({
+import { computed } from 'vue';
+const props = defineProps({
     ingrediente: {
         type: Object,
         required: true,
     },
 })
+const imagenServer = computed(() => props.ingrediente.imagen.startsWith("http"));
 </script>
 <template>
     <div
@@ -20,7 +22,7 @@ defineProps({
         <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <div class="flex justify-center lg:mb-0">
                 <img
-                    :src="`/img/${ingrediente.imagen}`"
+                    :src="[imagenServer ? ingrediente.imagen : `/img/${ingrediente.imagen}`]"
                     :alt="ingrediente.nombre"
                     class="w-full lg:w-40 rounded-md"
                 />
