@@ -23,11 +23,7 @@ onMounted(() => {
         </div>
         <nav class="hidden lg:flex space-x-4 items-center">
           <a href="#"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Recetas</a>
-          <a
-            href="#"
-            class="text-xl text-medium text-amber-600 hover:text-amber-800"
-            >Ingredientes</a
-          >
+          <RouterLink :to="{name: 'ingredientes'}"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Ingredientes</RouterLink>
           <RouterLink :to="{name:'login'}"  class="text-sm text-medium text-amber-600 hover:text-amber-800  border border-amber-600 p-2 rounded">Inicia sesión</RouterLink>
         </nav>
       </div>
@@ -36,11 +32,8 @@ onMounted(() => {
     <div id="mobile-menu" class="lg:hidden hidden bg-white shadow-md">
       <nav class="flex flex-col space-y-4 p-4">
         <a href="#"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Recetas</a>
-        <a
-          href="#"
-          class="text-xl text-medium text-amber-600 hover:text-amber-800"
-          >Ingredientes</a
-        >
+        <RouterLink :to="{name: 'ingredientes'}"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Ingredientes</RouterLink>
+
         <RouterLink :to="{name:'login'}"  class="text-sm text-medium text-amber-600 hover:text-amber-800  border border-amber-600 p-2 rounded w-24">Inicia sesión</RouterLink>
       </nav>
     </div>

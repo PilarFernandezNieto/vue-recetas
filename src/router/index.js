@@ -36,32 +36,52 @@ const router = createRouter({
             ],
         },
         {
-          path: '/admin',
-          name: 'admin',
-          component: AdminLayout,
-          children: [
-            {
-              path: '',
-              name: 'dashboard',
-              component: () => import('@/views/admin/DashboardView.vue'),
-            },
-            {
-              path: 'ingredientes',
-              name: 'ingredientes',
-              component: () => import('@/views/admin/IngredientesView.vue'),
-            },
-            {
-              path: 'recetas',
-              name: 'recetas',
-              component: () => import('@/views/admin/RecetasView.vue'),
-            },
-            {
-              path: 'usuarios',
-              name: 'usuarios',
-              component: () => import('@/views/admin/UsuariosView.vue'),
-            }
-          ]
-        }
+            path: '/admin',
+            name: 'admin',
+            component: AdminLayout,
+            children: [
+                {
+                    path: '',
+                    name: 'dashboard',
+                    component: () => import('@/views/admin/DashboardView.vue'),
+                },
+                {
+                    path: 'ingredientes',
+                    name: 'ingredientes',
+                    component: () =>
+                        import(
+                            '@/views/admin/ingredientes/IngredientesView.vue'
+                        ),
+                },
+                {
+                    path: 'nuevo-ingrediente',
+                    name: 'nuevo-ingrediente',
+                    component: () =>
+                        import(
+                            '@/views/admin/ingredientes/NuevoIngredienteView.vue'
+                        ),
+                },
+                {
+                    path: 'editar-ingrediente/:id',
+                    name: 'editar-ingrediente',
+                    component: () =>
+                        import(
+                            '@/views/admin/ingredientes/EditarIngredienteView.vue'
+                        ),
+                },
+
+                {
+                    path: 'recetas',
+                    name: 'recetas',
+                    component: () => import('@/views/admin/RecetasView.vue'),
+                },
+                {
+                    path: 'usuarios',
+                    name: 'usuarios',
+                    component: () => import('@/views/admin/UsuariosView.vue'),
+                },
+            ],
+        },
     ],
 })
 
