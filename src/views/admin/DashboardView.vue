@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 <template>
     <div class="mt-10 flex flex-col items-center">
         <section
-            class="w-1/2 mx-auto m-10 shadow-lg p-10 space-y-8 flex flex-col justify-center"
+            class="w-[90%] md:w-1/2 mx-auto m-10 shadow-lg p-10 space-y-8 flex flex-col justify-center bg-amber-50"
         >
             <RouterLink
                 :to="{ name: 'ingredientes' }"

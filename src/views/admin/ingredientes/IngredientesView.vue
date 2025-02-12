@@ -21,6 +21,8 @@ const ingredientesFiltrados = computed(() => {
             .includes(buscar.value.toLowerCase())
     })
 })
+
+
 </script>
 <template>
     <div

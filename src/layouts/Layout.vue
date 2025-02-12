@@ -36,7 +36,7 @@ onMounted(() => {
     <!-- Menú desplegable en dispositivos móviles -->
     <div id="mobile-menu" class="lg:hidden hidden bg-white shadow-md">
       <nav class="flex flex-col space-y-4 p-4">
-        <RouterLink :to="{name: 'admin'}"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Admin</RouterLink>
+        <RouterLink :to="{name: 'dashboard'}"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Admin</RouterLink>
         <a href="#"  class="text-xl text-medium text-amber-600 hover:text-amber-800">Recetas</a>
         <a
           href="#"

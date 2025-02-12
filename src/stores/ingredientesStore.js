@@ -74,6 +74,19 @@ export const useIngredientesStore = defineStore('ingredientes', () => {
             console.log('Error al editar ingrediente', errores.value)
         }
     }
+    const eliminarIngrediente =  async(id) => {
+       try {
+            const {data} = await clienteAxios.delete(`/api/ingredientes/${id}`)
+            if (data.type === 'success') {
+                toastStore.mostrarExito(data.message)
+                ingredientes.value = ingredientes.value.filter(ingredienteStore => ingredienteStore.id !== id)
+            }
+       } catch (error) {
+        console.log('Error al eliminar ingrediente', error)
+            
+       }
+        
+    }
 
     return {
         ingredientes,
@@ -82,5 +95,6 @@ export const useIngredientesStore = defineStore('ingredientes', () => {
         crearIngrediente,
         cargarIngrediente,
         editarIngrediente,
+        eliminarIngrediente
     }
 })
